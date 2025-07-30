@@ -2,6 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Admin\Widgets\GraphChart;
+use App\Filament\Admin\Widgets\ProductStockOverview;
+use App\Filament\Admin\Widgets\TotalProductStat;
+use App\Filament\Admin\Widgets\TotalTransaction;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -50,6 +54,10 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
                 \Awcodes\Overlook\Widgets\OverlookWidget::class,
+                ProductStockOverview::class,
+                TotalProductStat::class,
+                TotalTransaction::class,
+                GraphChart::class,
             ])
             ->navigationGroups([
                 NavigationGroup::make()
